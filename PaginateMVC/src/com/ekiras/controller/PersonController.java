@@ -14,6 +14,11 @@ public class PersonController {
 	@Autowired
 	private PersonService personService;
 	
+	
+	/**
+	 * 說明：顯示資料清單
+	 * @return  String
+	 */
 	@RequestMapping(value="/list")
 	public String list(Model model, Integer offset, Integer maxResults){
 		model.addAttribute("persons", personService.list(offset, maxResults));
@@ -22,6 +27,10 @@ public class PersonController {
 		return "/person/list";
 	}
 	
+	/**
+	 * 說明：產生資料
+	 * @return  String
+	 */
 	@RequestMapping(value="/save")
 	public String save(){
 		personService.save();
